@@ -14,6 +14,18 @@ import 'package:google_fonts/google_fonts.dart';
 900	Black (Heavy) */
 
 class MTextStyle {
+  static inter_medium(Color color) {
+    return GoogleFonts.inter(
+      textStyle: TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: 12,
+        height: 14.52 / 12,
+        letterSpacing: 0,
+        color: color,
+      ),
+    );
+  }
+
   static raleway_medium(Color color) {
     return GoogleFonts.raleway(
       textStyle: TextStyle(
