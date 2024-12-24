@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_cosmetics_store/constants/colors.dart';
 import 'package:flutter_cosmetics_store/constants/text_styles.dart';
-import 'package:flutter_cosmetics_store/data/new_products.dart';
+
+import 'package:flutter_cosmetics_store/data/data.dart';
 import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/advertisement_with_text.dart';
+import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/card_1.dart';
 import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/custom_list_view.dart';
+import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/go_to_discounts.dart';
+import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/home_care_scheme.dart';
 import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/new_products_text.dart';
+import 'package:flutter_cosmetics_store/ui_presentation/widgets/custom_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,16 +22,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
-
-  List<String> list = [
-    'Наборы',
-    "Для лица",
-    "Для глаз",
-    "Для тела",
-    "Для лица",
-    "Для глаз",
-    "Для тела"
-  ];
 
   final Data _data = Data();
 
@@ -39,58 +35,31 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 25),
           _buildListView(),
           SizedBox(height: 32),
-          NewProductsText(),
-          _buildGradientUngerline(),
+          NewProductsText(text: 'Новинки'),
+          _buildGradientUnderline(MColor.leftToRightGradientColor),
           SizedBox(height: 24),
           SizedBox(
             height: 278.47,
             child: CustomListView(list: _data.newProductsAtHomeScren),
           ),
           SizedBox(height: 40.53),
-          Container(
-            height: 250,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/home_background.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 26),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 22),
-                  child: Text(
-                    'Моя схема домашнего ухода',
-                    style: GoogleFonts.raleway(
-                      textStyle: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                        height: 1,
-                        color: MColor.black,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 23),
-              ],
-            ),
-          ),
+          HomeCareScheme(),
+          SizedBox(height: 24),
+          NewProductsText(text: 'Акции'),
+          _buildGradientUnderline(MColor.leftToRightGradientColor2),
         ],
       ),
     );
   }
 
-  Widget _buildGradientUngerline() {
+  Widget _buildGradientUnderline(Gradient color) {
     return Container(
       margin: EdgeInsets.only(left: 15),
       height: 4,
       width: 118,
       decoration: BoxDecoration(
         color: MColor.white_dot,
-        gradient: MColor.leftToRightGradientColor,
+        gradient: color,
       ),
     );
   }
@@ -103,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.only(
           left: 16,
         ),
-        itemCount: 7,
+        itemCount: _data.category.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.only(right: 12),
           child: Column(
@@ -116,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(12),
                   child: Image(
                     image: AssetImage(
-                      'assets/list_view_image/image${index + 1}.png',
+                      _data.category[index].pathToImage,
                     ),
                     fit: BoxFit.fitHeight,
                   ),
@@ -124,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(height: 8),
               Text(
-                list[index],
+                _data.category[index].name,
                 style: MTextStyle.inter_medium(MColor.black),
                 textAlign: TextAlign.center,
               )

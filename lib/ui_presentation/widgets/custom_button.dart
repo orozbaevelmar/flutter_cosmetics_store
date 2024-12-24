@@ -4,9 +4,15 @@ import 'package:flutter_cosmetics_store/constants/text_styles.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
+  final Color backgroundColor;
+  final BorderRadiusGeometry? borderRadius;
+  final EdgeInsetsGeometry? padding;
   const CustomButton({
     super.key,
     required this.onTap,
+    this.backgroundColor = Colors.transparent,
+    this.borderRadius,
+    required this.padding,
   });
 
   @override
@@ -15,9 +21,10 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.all(10),
+        padding: padding,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(3),
+          color: backgroundColor,
+          borderRadius: borderRadius,
           border: Border.all(color: MColor.white),
         ),
         child: Text(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class MColor {
   static const black = Color(0xFF000000);
+  static const black_1 = Color(0xFF2b2b2b);
   static const gray = Color(0xFF70757F);
   static const gray_20 = Color(0xFFCBCBD5);
   static const gray_listViewBack = Color(0xFFf4f4f4);
@@ -22,6 +23,15 @@ class MColor {
     colors: [
       Color(0xFFE4FEF9),
       Color(0xFF66F6DC),
+    ],
+  );
+
+  static final leftToRightGradientColor2 = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      Color(0xFFFFC0E1),
+      Color(0xFFF02980),
     ],
   );
 }

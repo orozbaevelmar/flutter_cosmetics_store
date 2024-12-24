@@ -79,7 +79,11 @@ class _AdvertisementWithTextState extends State<AdvertisementWithText> {
                             style: MTextStyle.velaSans_normal(MColor.white)),
                       ],
                     ),
-                    CustomButton(onTap: () {}),
+                    CustomButton(
+                      onTap: () {},
+                      borderRadius: BorderRadius.circular(3),
+                      padding: EdgeInsets.all(10),
+                    ),
                   ],
                 ),
                 SizedBox(height: 28),
