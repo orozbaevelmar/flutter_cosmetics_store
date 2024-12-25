@@ -34,6 +34,15 @@ class MColor {
       Color(0xFFF02980),
     ],
   );
+
+  static final leftToRightGradientColor3 = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      Color(0xFFF86614),
+      Color(0xFFFCBC5C),
+    ],
+  );
 }
 /* background: linear-gradient(186.28deg, rgba(0, 0, 0, 0) 8.98%, #2C2C2C 106.61%);
  */

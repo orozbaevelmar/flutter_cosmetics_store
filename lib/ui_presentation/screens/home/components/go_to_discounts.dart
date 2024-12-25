@@ -30,6 +30,7 @@ class GoToDiscount extends StatelessWidget {
             ),
           ),
           CustomButton(
+            text: 'Перейти к акции',
             onTap: () {},
             backgroundColor: MColor.black_1,
             borderRadius: BorderRadius.circular(6),

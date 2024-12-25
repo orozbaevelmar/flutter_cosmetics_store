@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_cosmetics_store/constants/colors.dart';
@@ -25,6 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final Data _data = Data();
 
+  final List<String> list = [
+    'Для очищения',
+    'Для увлажнения',
+    'Для питания',
+    'Для омоложения',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -47,6 +55,57 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 24),
           NewProductsText(text: 'Акции'),
           _buildGradientUnderline(MColor.leftToRightGradientColor2),
+          SizedBox(height: 25),
+          SizedBox(
+            height: 278.47,
+            child: CustomListView(
+              list: _data.discountProducts,
+            ),
+          ),
+          GridView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 41),
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 7, //
+              mainAxisSpacing: 8, //
+              mainAxisExtent: 60,
+            ),
+            itemCount: list.length,
+            itemBuilder: (context, index) {
+              return Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(9),
+                    border: Border.all(
+                      color: MColor.black.withOpacity(0.1),
+                    )),
+                child: Text(
+                  list[index],
+                  style: GoogleFonts.raleway(
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                      height: 36 / 14,
+                      color: Color(0xFF080808),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+          NewProductsText(text: 'Хиты'),
+          _buildGradientUnderline(MColor.leftToRightGradientColor3),
+          SizedBox(height: 25),
+          SizedBox(
+            height: 278.47,
+            child: CustomListView(
+              list: _data.hitProductsAtHomeScren,
+            ),
+          ),
+          SizedBox(height: 51),
         ],
       ),
     );

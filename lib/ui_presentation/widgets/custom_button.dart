@@ -3,12 +3,14 @@ import 'package:flutter_cosmetics_store/constants/colors.dart';
 import 'package:flutter_cosmetics_store/constants/text_styles.dart';
 
 class CustomButton extends StatelessWidget {
+  final String text;
   final VoidCallback onTap;
   final Color backgroundColor;
   final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry? padding;
   const CustomButton({
     super.key,
+    required this.text,
     required this.onTap,
     this.backgroundColor = Colors.transparent,
     this.borderRadius,
@@ -28,7 +30,7 @@ class CustomButton extends StatelessWidget {
           border: Border.all(color: MColor.white),
         ),
         child: Text(
-          'Перейти к акции',
+          text,
           style: MTextStyle.raleway_semiBold(MColor.white),
         ),
       ),

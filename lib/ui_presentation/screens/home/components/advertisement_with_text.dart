@@ -80,6 +80,7 @@ class _AdvertisementWithTextState extends State<AdvertisementWithText> {
                       ],
                     ),
                     CustomButton(
+                      text: 'Перейти к акции',
                       onTap: () {},
                       borderRadius: BorderRadius.circular(3),
                       padding: EdgeInsets.all(10),

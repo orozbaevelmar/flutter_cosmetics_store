@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cosmetics_store/constants/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 /*     FontWeight
@@ -25,6 +26,16 @@ class MTextStyle {
       ),
     );
   }
+
+  static final strikeLineThrough = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+      color: MColor.black.withOpacity(0.2),
+      decoration: TextDecoration.lineThrough,
+      height: 18.53 / 16,
+    ),
+  );
 
   static raleway_medium(Color color) {
     return GoogleFonts.raleway(
