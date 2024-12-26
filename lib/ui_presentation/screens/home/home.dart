@@ -62,40 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
               list: _data.discountProducts,
             ),
           ),
-          GridView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 41),
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 7, //
-              mainAxisSpacing: 8, //
-              mainAxisExtent: 60,
-            ),
-            itemCount: list.length,
-            itemBuilder: (context, index) {
-              return Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(9),
-                    border: Border.all(
-                      color: MColor.black.withOpacity(0.1),
-                    )),
-                child: Text(
-                  list[index],
-                  style: GoogleFonts.raleway(
-                    textStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
-                      height: 36 / 14,
-                      color: Color(0xFF080808),
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
+          _buildGridView(),
           NewProductsText(text: 'Хиты'),
           _buildGradientUnderline(MColor.leftToRightGradientColor3),
           SizedBox(height: 25),
@@ -108,6 +75,43 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 51),
         ],
       ),
+    );
+  }
+
+  Widget _buildGridView() {
+    return GridView.builder(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 41),
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 7, //
+        mainAxisSpacing: 8, //
+        mainAxisExtent: 60,
+      ),
+      itemCount: list.length,
+      itemBuilder: (context, index) {
+        return Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(9),
+              border: Border.all(
+                color: MColor.black.withOpacity(0.1),
+              )),
+          child: Text(
+            list[index],
+            style: GoogleFonts.raleway(
+              textStyle: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+                height: 36 / 14,
+                color: Color(0xFF080808),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
