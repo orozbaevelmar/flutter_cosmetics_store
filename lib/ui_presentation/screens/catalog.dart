@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cosmetics_store/constants/colors.dart';
-import 'package:flutter_cosmetics_store/constants/text_styles.dart';
+import 'package:flutter_cosmetics_store/ui_presentation/widgets/custom_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CatalogScreen extends StatelessWidget {
@@ -20,6 +20,7 @@ class CatalogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -27,8 +28,60 @@ class CatalogScreen extends StatelessWidget {
             SizedBox(height: 39),
             _buildCategory(context),
             SizedBox(height: 51),
+            _buildTest(),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildTest() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 1),
+      padding: EdgeInsets.all(24),
+      width: double.infinity,
+      height: 169,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage('assets/home_background.png'),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Составим схему идеального\nдомашнего ухода',
+            style: GoogleFonts.raleway(
+              textStyle: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 16,
+                height: 18 / 16,
+                color: MColor.black,
+              ),
+            ),
+          ),
+          SizedBox(height: 12),
+          Text(
+            '10 вопросов о вашей коже',
+            style: GoogleFonts.raleway(
+              textStyle: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+                height: 17 / 14,
+                color: MColor.black,
+              ),
+            ),
+          ),
+          SizedBox(height: 16),
+          CustomButton(
+            text: 'Пройти тест',
+            onTap: () {},
+            padding: EdgeInsets.symmetric(horizontal: 19, vertical: 11),
+            backgroundColor: MColor.black,
+            borderRadius: BorderRadius.circular(6),
+          )
+        ],
       ),
     );
   }

@@ -5,6 +5,21 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Placeholder();
+  }
+
+  Widget _buildABC() {
+    return ClipRRect(
+      clipBehavior: Clip.hardEdge,
+      child: Image(image: AssetImage('fds')),
+    );
+  }
+
+  Widget _buildabcd() {
+    return Container(
+      child: Image(
+        image: NetworkImage('https//asdfa'),
+      ),
+    );
   }
 }

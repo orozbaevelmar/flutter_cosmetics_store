@@ -6,12 +6,9 @@ import 'package:flutter_cosmetics_store/constants/text_styles.dart';
 
 import 'package:flutter_cosmetics_store/data/data.dart';
 import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/advertisement_with_text.dart';
-import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/card_1.dart';
 import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/custom_list_view.dart';
-import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/go_to_discounts.dart';
 import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/home_care_scheme.dart';
 import 'package:flutter_cosmetics_store/ui_presentation/screens/home/components/new_products_text.dart';
-import 'package:flutter_cosmetics_store/ui_presentation/widgets/custom_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
